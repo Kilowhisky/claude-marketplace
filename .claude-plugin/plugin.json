@@ -1,0 +1,17 @@
+{
+  "name": "personal-skills",
+  "description": "Personal Claude Code skills collection: ai-project-bootstrap, caveman, find-skills, grill-me, and systematic-debugging.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Chris Rice"
+  },
+  "homepage": "https://github.com/Kilowhisky/claude-marketplace",
+  "repository": "https://github.com/Kilowhisky/claude-marketplace",
+  "keywords": [
+    "skills",
+    "bootstrap",
+    "documentation",
+    "debugging",
+    "productivity"
+  ]
+}
