@@ -25,7 +25,7 @@ Four steps, total ~25 minutes:
 | Step | What | Time |
 |------|------|------|
 | 1 | Interview the human — capture what code can't tell you | ~10 min |
-| 2 | Deep-read the codebase (parallel with interview) | ~2 min |
+| 2 | Deep-read the codebase (parallel with interview using subagents/workflows) | ~2 min |
 | 3 | Fetch external sources (Confluence, Jira, etc.) | ~1 min |
 | 4 | Write all docs in dependency order | ~10 min |
 
