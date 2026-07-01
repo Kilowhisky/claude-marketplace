@@ -1,0 +1,81 @@
+{
+  "skill_name": "ai-project-bootstrap",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "I need to investigate this project and bring it under AI development control. I want you to investigate the project and build the following docs: ARCHITECTURE.md, DECISIONS.md, CHANGELOG.md, specs/, investigations/, CONTEXT.md, a general README.md, and CLAUDE.md.",
+      "expected_output": "Claude should trigger the ai-project-bootstrap skill, kick off the /grill-me interview process (or equivalent structured questions), spawn an Explore subagent to read the codebase in parallel, and outline the dependency-ordered writing plan for all 8 doc files. It should NOT skip directly to writing files without interviewing the user first.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "starts-with-interview-not-writing",
+          "description": "Response asks interview questions before writing any files — does not immediately produce file content"
+        },
+        {
+          "name": "explores-codebase",
+          "description": "Response mentions spawning an Explore subagent or plans to read/explore the codebase"
+        },
+        {
+          "name": "knows-all-8-doc-files",
+          "description": "Response references all 8 output files: CONTEXT.md, ARCHITECTURE.md, DECISIONS.md, CHANGELOG.md, specs/, investigations/, README.md, CLAUDE.md"
+        },
+        {
+          "name": "claude-md-written-last",
+          "description": "Response indicates CLAUDE.md is the last file or depends on the others"
+        },
+        {
+          "name": "mentions-grill-me-or-structured-interview",
+          "description": "Response mentions /grill-me or runs a structured interview covering business purpose, audience, status, etc."
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Hey can you create a CLAUDE.md for this repo? I want to be able to start new sessions without having to explain the whole project to you every time.",
+      "expected_output": "Claude should recognize this as an AI bootstrapping request, trigger the skill, and explain that CLAUDE.md is the last file written (depends on all others) — it will run the full bootstrap process rather than just writing CLAUDE.md in isolation. It should start the interview process.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "does-not-just-write-claude-md-alone",
+          "description": "Response does not immediately write a standalone CLAUDE.md — it explains the full bootstrap is needed"
+        },
+        {
+          "name": "starts-with-interview",
+          "description": "Response begins the structured interview rather than jumping to file writing"
+        },
+        {
+          "name": "explores-codebase",
+          "description": "Response mentions exploring or reading the codebase (in parallel with interview)"
+        },
+        {
+          "name": "explains-why-full-process-needed",
+          "description": "Response explains why CLAUDE.md requires the full context-building process first"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Set up AI-first documentation for this project. It's a Node.js service. We have some Confluence pages with background on why we built this, and a Jira epic. No docs in the repo currently.",
+      "expected_output": "Claude should trigger the skill, start the structured interview, and specifically ask about the Confluence/Jira URLs so it can fetch external sources in Step 3. The plan should include the Atlassian MCP fetch step. Should follow all 4 steps in order.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "asks-for-confluence-jira-urls",
+          "description": "Response asks for the Confluence page URL/ID or Jira epic URL to fetch external sources"
+        },
+        {
+          "name": "mentions-atlassian-mcp-or-fetch",
+          "description": "Response mentions fetching/reading the Confluence pages or using Atlassian tooling"
+        },
+        {
+          "name": "starts-with-interview",
+          "description": "Response begins structured interview questions"
+        },
+        {
+          "name": "explores-codebase",
+          "description": "Response mentions exploring or reading the codebase"
+        }
+      ]
+    }
+  ]
+}
